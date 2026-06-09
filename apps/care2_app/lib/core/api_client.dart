@@ -6,7 +6,23 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiClient {
-  static const String baseUrl = 'http://localhost:8000';
+  // Production: Render backend | Local dev: localhost
+  static const String _prodUrl = 'https://care2-api.onrender.com';
+  static const String _devUrl = 'http://localhost:8000';
+  
+  static String get baseUrl {
+    // Use production URL when running as deployed web app
+    const isProduction = bool.fromEnvironment('dart.vm.product', defaultValue: false);
+    if (isProduction) return _prodUrl;
+    // Also check if running on web and not localhost
+    try {
+      final uri = Uri.base;
+      if (uri.host != 'localhost' && uri.host != '127.0.0.1' && uri.host.isNotEmpty) {
+        return _prodUrl;
+      }
+    } catch (_) {}
+    return _devUrl;
+  }
   
   static final Dio _dio = Dio(BaseOptions(
     baseUrl: baseUrl,

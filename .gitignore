@@ -1,0 +1,54 @@
+# ===== Python / Backend =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.env
+*.egg-info/
+dist/
+build/
+*.log
+
+# ===== Flutter / Dart =====
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Debug / Temp files =====
+debug_import.py
+debug_import2.py
+test_import.py
+test_import_debug.py
+import_error.log
+analyze.txt
+analyze_decoded.txt
+analyze_errors.txt
+analyze_res.txt
+real_analyze.txt
+temp_analyze.txt
+flutter_analyze_output.txt
+build_log.txt
+flutter_log.txt
+
+# ===== Large files =====
+get-pip.py
+
+# ===== ML model artifacts (keep training script, ignore binaries) =====
+ml/risk_prediction/*.joblib
+ml/risk_prediction/*.pkl
